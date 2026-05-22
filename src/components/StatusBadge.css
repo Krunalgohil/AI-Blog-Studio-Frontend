@@ -1,0 +1,20 @@
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  text-transform: capitalize;
+  border: 1px solid var(--line);
+  background: var(--panel-strong);
+  color: var(--text);
+  animation: bounce 1.8s ease-in-out infinite;
+}
+.status-badge::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: currentColor; box-shadow: 0 0 0 6px color-mix(in srgb, currentColor 16%, transparent); opacity: 0.9; }
+.status-draft { color: #22c55e; }
+.status-generating, .status-publishing { color: #f59e0b; animation-delay: 0.2s; }
+.status-published { color: #3b82f6; }
+.status-failed { color: #ef4444; animation: none; }
+
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }

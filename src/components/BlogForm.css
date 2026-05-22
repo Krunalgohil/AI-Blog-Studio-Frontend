@@ -1,0 +1,109 @@
+.composer-card {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.composer-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 60% at 85% 20%, rgba(99, 102, 241, 0.08), transparent 45%);
+  pointer-events: none;
+}
+
+.form-header h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.floating-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.floating-field label {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  padding: 0 8px;
+  background: var(--bg-strong);
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.9rem;
+  pointer-events: none;
+  transition: transform 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+.topic-input {
+  resize: vertical;
+  min-height: 120px;
+  padding-top: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.topic-input:focus+label,
+.topic-input:not(:placeholder-shown)+label {
+  transform: translateY(-16px);
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+.field-hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.select-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.select-field label {
+  font-weight: 700;
+  color: var(--muted-strong);
+}
+
+.platform-select {
+  padding: 12px 14px;
+  border-radius: var(--border);
+  border: 1px solid var(--border);
+  background: var(--bg-strong);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.platform-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.form-actions {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .form-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .primary-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

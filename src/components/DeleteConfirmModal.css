@@ -1,0 +1,21 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  z-index: 80;
+}
+.modal-box {
+  width: min(520px, 92vw);
+  padding: 18px;
+  border-radius: var(--radius-card);
+}
+.modal-header { display: flex; align-items: center; gap: 12px; justify-content: space-between; }
+.modal-icon { width: 36px; height: 36px; border-radius: 12px; display: grid; place-items: center; background: color-mix(in srgb, var(--danger) 18%, transparent); color: var(--danger); }
+.modal-description { color: var(--muted); margin: 4px 0 0; }
+.modal-instruction { color: var(--text); font-weight: 600; }
+.modal-blog-name { color: var(--accent); }
+.modal-input { margin: 10px 0 16px; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; }

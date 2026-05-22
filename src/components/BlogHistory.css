@@ -1,0 +1,50 @@
+.history-card {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.history-count { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border: 1px solid var(--line); border-radius: var(--radius-pill); background: var(--panel-strong); color: var(--muted); font-weight: 700; }
+
+.history-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+
+.history-item {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--panel-strong);
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.history-item:hover { transform: translateY(-4px); box-shadow: 0 16px 30px rgba(15, 23, 42, 0.15); border-color: color-mix(in srgb, var(--accent) 26%, var(--line)); }
+.history-item.selected { border-color: var(--accent); box-shadow: 0 18px 36px rgba(99, 102, 241, 0.28); }
+.history-item-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.history-title { font-weight: 700; color: var(--text); font-size: 1rem; }
+.history-topic { color: var(--muted); font-size: 0.95rem; }
+.history-meta { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.9rem; }
+.history-dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
+.history-subtle { color: var(--muted); }
+
+.empty-history {
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  background: var(--panel-strong);
+}
+.empty-icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.empty-title { margin: 0; font-weight: 700; color: var(--text); }
+
+@media (max-width: 640px) {
+  .history-grid { grid-template-columns: 1fr; }
+}
