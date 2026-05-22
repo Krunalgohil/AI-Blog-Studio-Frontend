@@ -21,12 +21,25 @@ const STORAGE_KEYS = {
   USER: "abs-user",
 };
 
+// ── API Base URL Configuration ───────────────────────────────────
+// Production: VITE_API_BASE_URL is set in .env.production
+//             → https://aiblogstudiobackend.onrender.com/api
+// Development: VITE_API_BASE_URL is empty in .env.development
+//             → falls back to "/api" (proxied by Vite dev server)
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "/api";
+
+if (import.meta.env.DEV) {
+  console.log("[API Client] Environment:", import.meta.env.MODE);
+  console.log("[API Client] Base URL:", API_BASE_URL);
+}
+
 // ── Axios Instance ───────────────────────────────────────────────
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "/api",
+  baseURL: API_BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true, // Send cookies/credentials for cross-origin requests
 });
 
 // ── Request Interceptor: Attach JWT ──────────────────────────────
