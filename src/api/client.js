@@ -22,11 +22,12 @@ const STORAGE_KEYS = {
 };
 
 // ── API Base URL Configuration ───────────────────────────────────
-// Production: VITE_API_BASE_URL is set in .env.production
-//             → https://aiblogstudiobackend.onrender.com/api
-// Development: VITE_API_BASE_URL is empty in .env.development
-//             → falls back to "/api" (proxied by Vite dev server)
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "/api";
+// Production: Uses VITE_API_BASE_URL if set on Render.
+//             If not set (because .env is gitignored), falls back to the live backend URL.
+// Development: falls back to "/api" (proxied by Vite dev server to localhost:8080)
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 
+                     (import.meta.env.PROD ? "https://aiblogstudiobackend.onrender.com/api" : "/api");
+
 
 if (import.meta.env.DEV) {
   console.log("[API Client] Environment:", import.meta.env.MODE);
